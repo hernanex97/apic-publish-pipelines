@@ -64,7 +64,7 @@ tar -xvf toolkit-linux.tgz
 chmod 777 apic-slim
 
 echo "APIC accept licenses"
-echo "y" | ./apic-slim version
+echo "y" | ./apic-slim
 echo "y"
 echo "./apic-slim --help"
 
