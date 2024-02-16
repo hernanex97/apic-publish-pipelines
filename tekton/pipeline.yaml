@@ -12,7 +12,7 @@ spec:
         value: 'https://github.com/cloud-native-toolkit/apic-publish-pipeline'
       # Github branch for the pipeline scripts.
       - name: git-apic-pipeline-git-branch
-        value: 'master'
+        value: 'main'
       # GitHub url where the products and APIs definitions are stored.
       - name: git-apic-yaml-url
         value: 'https://github.com/hernanex97/apic-test'
