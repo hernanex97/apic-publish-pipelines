@@ -66,7 +66,7 @@ chmod 777 apic-slim
 echo "APIC accept licenses"
 echo "y" | ./apic-slim
 echo "y"
-echo "./apic-slim --help"
+./apic-slim --help
 
 # Get the IBM APIC Connect Cloud Manager Admin password
 APIC_ADMIN_PASSWORD=$(oc get secret $(oc get secrets -n ${APIC_NAMESPACE} | grep mgmt-admin-pass | awk '{print $1}') -n ${APIC_NAMESPACE} -o jsonpath='{.data.password}' | base64 -d)
@@ -78,6 +78,7 @@ echo "\"APIC_ADMIN_PASSWORD\":\"${APIC_ADMIN_PASSWORD}\"" >> config.json
 echo "}" >> config.json
 
 # Login to IBM API Connect Cloud Manager through the APIC CLI
+echo "./apic-slim login --server ${APIC_ADMIN_URL} --username admin --password ''"${APIC_ADMIN_PASSWORD}"'' --realm ${ADMIN_REALM} --accept-license > /dev/null"
 ./apic-slim login --server ${APIC_ADMIN_URL} --username admin --password ''"${APIC_ADMIN_PASSWORD}"'' --realm ${ADMIN_REALM} --accept-license > /dev/null
 if [[ $? -ne 0 ]]; then echo "[ERROR][config.sh] - An error ocurred login into IBM API Connect using the APIC CLI"; exit 1; fi
 
