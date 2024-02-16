@@ -1,0 +1,40 @@
+{
+	"env": "dummy",
+	"domain": ".apps.in.ibm.com",
+	"deploymentPlatform": {
+		"type": "openshift",
+		"openshift": {
+			"address": "bceglc188.in.ibm.com:7443",
+			"port": "7443",
+			"authentication": {
+				"type": "creds",
+				"creds": {
+					"username": "admin",
+					"pswd": "admin"
+				}
+			}
+		},
+		"dockerRegistry": {
+			"address": "docker-registry.default.svc",
+			"port": "5000",
+			"authentication": {
+				"type": "creds",
+				"creds": {
+					"username": "admin",
+					"pswd": "CM6CGUanPmdy2MXW8uvR0Gg4l6E0-TyWwbc4_6Ayejc"
+				}
+			}
+		},
+		"apic": {
+			"mgmt": {
+				"platformBaseURL": "https://platform.9.202.176.183.nip.io/api",
+				"realm": "provider/default-idp-2",
+				"username": "mgradmin",
+				"pswd": "!n0r1t5@C",
+				"provOrg": "bconnect",
+				"catalogName": "uatv5"
+			},
+			"gwyBaseURL": "https://9.202.176.183:9091"
+		}
+	}
+}

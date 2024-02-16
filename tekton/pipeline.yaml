@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: apic-publish-products-apis-pipeline
+spec:
+  params:
+  tasks:
+    - name: apic-publish-products-apis
+      params:
+      # GitHub url where the pipeline scripts are stored. These are the scripts the pipeline will execute.
+      - name: git-apic-pipeline-git-url
+        value: 'https://github.com/cloud-native-toolkit/apic-publish-pipeline'
+      # Github branch for the pipeline scripts.
+      - name: git-apic-pipeline-git-branch
+        value: 'master'
+      # GitHub url where the products and APIs definitions are stored.
+      - name: git-apic-yaml-url
+        value: 'https://github.com/hernanex97/apic-test'
+      # GitHub branch for the products and APIs.
+      - name: git-apic-yaml-branch
+        value: 'main'
+      # Path to where the products definitions are stored within your GitHub repository.
+      - name: git-products-path
+        value: './'
+      # Path to where the APIs definitions are stored within your GitHub repository.
+      - name: git-apis-path
+        value: './'
+      # OpenShift project where your IBM API Connect Cluster v10 has been deployed into.
+      - name: apic-project
+        value: cp4i
+      # Debug flag
+      - name: debug
+        value: "True"
+      taskRef:
+        name: apic-publish-products-apis
