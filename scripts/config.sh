@@ -59,8 +59,9 @@ then
   echo "[ERROR][config.sh] - An error ocurred downloading the APIC toolkit to get the APIC CLI"
   exit 1
 fi
-tar -zxvf toolkit-linux.tgz
-chmod +x apic-slim
+tar -xvf toolkit-linux.tgz
+# chmod +x apic-slim
+chmod 777 apic-slim
 
 # Get the IBM APIC Connect Cloud Manager Admin password
 APIC_ADMIN_PASSWORD=$(oc get secret $(oc get secrets -n ${APIC_NAMESPACE} | grep mgmt-admin-pass | awk '{print $1}') -n ${APIC_NAMESPACE} -o jsonpath='{.data.password}' | base64 -d)
