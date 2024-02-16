@@ -63,8 +63,8 @@ tar -xvf toolkit-linux.tgz
 # chmod +x apic-slim
 chmod 777 apic-slim
 
-echo "APIC CLI Version"
-./apic-slim version
+echo "APIC accept licenses"
+echo "y" | ./apic-slim licenses accept L-VQYA-YNM22H
 
 # Get the IBM APIC Connect Cloud Manager Admin password
 APIC_ADMIN_PASSWORD=$(oc get secret $(oc get secrets -n ${APIC_NAMESPACE} | grep mgmt-admin-pass | awk '{print $1}') -n ${APIC_NAMESPACE} -o jsonpath='{.data.password}' | base64 -d)
