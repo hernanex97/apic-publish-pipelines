@@ -52,8 +52,8 @@ echo "\"APIC_PLATFORM_API_URL\":\"${APIC_PLATFORM_API_URL}\"," >> config.json
 ADMIN_REALM="admin/default-idp-1"
 
 # Get the APIC CLI
-echo "curl -s --write-out '%{http_code}' https://${APIC_ADMIN_URL}/client-downloads/toolkit-linux.tgz --insecure --output toolkit-linux.tgz"
-HTTP_CODE=`curl -s --write-out '%{http_code}' https://${APIC_ADMIN_URL}/client-downloads/toolkit-linux.tgz --insecure --output toolkit-linux.tgz`
+echo "curl -s --write-out '%{http_code}' https://${APIC_API_MANAGER_URL}/client-downloads/toolkit-linux.tgz --insecure --output toolkit-linux.tgz"
+HTTP_CODE=`curl -s --write-out '%{http_code}' https://${APIC_API_MANAGER_URL}/client-downloads/toolkit-linux.tgz --insecure --output toolkit-linux.tgz`
 if [[ "${HTTP_CODE}" != "200" ]]
 then 
   echo "[ERROR][config.sh] - An error ocurred downloading the APIC toolkit to get the APIC CLI"
