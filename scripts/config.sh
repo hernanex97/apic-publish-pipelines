@@ -65,6 +65,7 @@ chmod 777 apic-slim
 
 echo "APIC accept licenses"
 echo "y" | ./apic-slim version
+echo "./apic-slim --help"
 
 # Get the IBM APIC Connect Cloud Manager Admin password
 APIC_ADMIN_PASSWORD=$(oc get secret $(oc get secrets -n ${APIC_NAMESPACE} | grep mgmt-admin-pass | awk '{print $1}') -n ${APIC_NAMESPACE} -o jsonpath='{.data.password}' | base64 -d)
