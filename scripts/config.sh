@@ -60,6 +60,7 @@ then
   exit 1
 fi
 tar -xvf toolkit-linux.tgz
+echo "./apic-slim version"
 # chmod +x apic-slim
 chmod 777 apic-slim
 
