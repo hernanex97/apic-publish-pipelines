@@ -65,6 +65,7 @@ chmod 777 apic-slim
 
 echo "APIC accept licenses"
 echo "y" | ./apic-slim version
+echo "y"
 echo "./apic-slim --help"
 
 # Get the IBM APIC Connect Cloud Manager Admin password
