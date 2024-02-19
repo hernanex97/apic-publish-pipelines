@@ -14,8 +14,6 @@ def get_toolkit_credentials(CONFIG_FILES_DIR):
     return toolkit_credentials
 
 def get_env_config(CONFIG_FILES_DIR):
-    print("CONFIG_FILES_DIR")
-    print(CONFIG_FILES_DIR)
     env_config = None
     if os.path.isfile(CONFIG_FILES_DIR + "/config.json"):
         with open(CONFIG_FILES_DIR + "/config.json") as f:

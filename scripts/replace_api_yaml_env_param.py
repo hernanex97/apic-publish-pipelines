@@ -7,9 +7,9 @@ FILE_NAME = "replace_api_yaml_env_param.py"
 INFO = "[INFO]["+ FILE_NAME +"] - " 
 WORKING_DIR_BASIC = "../WORKSPACE"
 
+print("os.environ[ CONFIG_FILES_DIR ]")
+print(os.environ["CONFIG_FILES_DIR"])
 environment_config = utils.get_env_config(os.environ["CONFIG_FILES_DIR"])
-
-print(environment_config)
 
 def replace_api_env_params(target_dir):
     yamlFiles=glob.glob(target_dir + "/*.yaml")
