@@ -35,7 +35,7 @@ spec:
       description: Path to where the APIs definitions are stored within your GitHub repository.
     - name: source-dir
       type: string
-      default: /source
+      default: ./
       description: Path where an empty directory will be mounted to which will serve as the source location for all the task steps.
     - name: tools-image
       type: string

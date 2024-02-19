@@ -9,6 +9,8 @@ WORKING_DIR_BASIC = "../WORKSPACE"
 
 environment_config = utils.get_env_config(os.environ["CONFIG_FILES_DIR"])
 
+print(environment_config)
+
 def replace_api_env_params(target_dir):
     yamlFiles=glob.glob(target_dir + "/*.yaml")
 
