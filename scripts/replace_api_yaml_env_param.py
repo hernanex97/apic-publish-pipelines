@@ -7,8 +7,22 @@ FILE_NAME = "replace_api_yaml_env_param.py"
 INFO = "[INFO]["+ FILE_NAME +"] - " 
 WORKING_DIR_BASIC = "../WORKSPACE"
 
+
+## DEBUG
+current_directory = os.getcwd()
+print(f"Current Directory: {current_directory}")
+
+# Print all files in the current directory
+print("\nFiles in the current directory:")
+for file in os.listdir(current_directory):
+    if os.path.isfile(os.path.join(current_directory, file)):
+        print(file)
+        
 print("os.environ[ CONFIG_FILES_DIR ]")
 print(os.environ["CONFIG_FILES_DIR"])
+## 
+
+
 environment_config = utils.get_env_config(os.environ["CONFIG_FILES_DIR"])
 
 def replace_api_env_params(target_dir):
