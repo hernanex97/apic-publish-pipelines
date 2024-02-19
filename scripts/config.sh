@@ -4,6 +4,12 @@
 # Configuration Initialization Script #
 #######################################
 
+##
+echo python3 version
+echo python version
+##
+
+
 if [[ -z "$1" ]]
 then
   echo "[ERROR][config.sh] - An IBM API Connect installation OpenShift poject was not provided"
