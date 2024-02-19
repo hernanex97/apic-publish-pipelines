@@ -5,8 +5,8 @@
 #######################################
 
 ##
-echo python3 version
-echo python version
+echo "Updating PIP"
+python3 -m pip install --upgrade pip
 ##
 
 

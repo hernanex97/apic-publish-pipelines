@@ -43,7 +43,7 @@ spec:
       description: Docker image with the tools needed for executing this task.
     - name: python-image
       type: string
-      default: python:3.9.5
+      default: python:3.9.6
       description: Python Docker image needed for executing this task.
     - name: oc-cli-image
       type: string
