@@ -1,13 +1,13 @@
 {
-    "GITLAB_BASE_URL" : "http://9.199.144.178:8001/api/v4/projects/",
-    "GITLAB_PROD_ID_OLD" : "47",
-    "GITLAB_PROD_ID" : "41",
-    "GITLAB_BRANCH" : "master",
-    "GITLAB_PRIV_TOKEN" : "fN_owrKkdNEfoCh_DRjk",
-    "APIC_REST_CLIENTID_OLD" : "devopsappid",
-    "APIC_REST_CLIENTSECRET_OLD" : "devopsappsecret",
-    "APIC_REST_CLIENTID_IDBP" : "e665b77d-8600-47b0-b488-709c27e70830",
-    "APIC_REST_CLIENTSECRET_IDBP" : "4bef6adb-5996-4c23-a5ec-a339edd8fbe4",
-    "APIC_REST_CLIENTID" : "a871c402-752e-4d24-86b3-4f81a2398de0",
-    "APIC_REST_CLIENTSECRET" : "fa96bb85-458b-48f8-bd2b-a02de901745e"
+    "GITLAB_BASE_URL": "http://9.199.144.178:8001/api/v4/projects/",
+    "GITLAB_PROD_ID_OLD": "47",
+    "GITLAB_PROD_ID": "41",
+    "GITLAB_BRANCH": "master",
+    "GITLAB_PRIV_TOKEN": "fN_owrKkdNEfoCh_DRjk",
+    "APIC_REST_CLIENTID_OLD": "devopsappid",
+    "APIC_REST_CLIENTSECRET_OLD": "devopsappsecret",
+    "APIC_REST_CLIENTID_IDBP": "e665b77d-8600-47b0-b488-709c27e70830",
+    "APIC_REST_CLIENTSECRET_IDBP": "4bef6adb-5996-4c23-a5ec-a339edd8fbe4",
+    "APIC_REST_CLIENTID": "a871c402-752e-4d24-86b3-4f81a2398de0",
+    "APIC_REST_CLIENTSECRET": "fa96bb85-458b-48f8-bd2b-a02de901745e"
 }
