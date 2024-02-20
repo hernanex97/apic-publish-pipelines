@@ -125,7 +125,10 @@ spec:
         cd scripts
         sh config.sh $(params.apic-project)
     - name: initialize-build
-      image: $(params.python-image)
+      image: $(params.
+      
+      
+      )
       workingDir: $(params.source-dir)
       script: |
         set +x

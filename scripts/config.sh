@@ -7,6 +7,8 @@
 ##
 echo "Updating PIP"
 # Upgrade pip to a specific version
+docker image rm python:3.6.8
+docker pull python:3.9.12
 python3 --version
 python3 -m pip install --upgrade pip==23.2.1
 
