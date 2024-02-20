@@ -7,6 +7,7 @@
 ##
 echo "Updating PIP"
 # Upgrade pip to a specific version
+dnf install python3.9.6
 python3 --version
 python3 -m pip install --upgrade pip==23.2.1
 
