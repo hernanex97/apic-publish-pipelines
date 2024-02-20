@@ -39,7 +39,7 @@ spec:
       description: Path where an empty directory will be mounted to which will serve as the source location for all the task steps.
     - name: tools-image
       type: string
-      default: quay.io/ibmgaragecloud/ibmcloud-dev:v2.0.4
+      default: quay.io/ibmgaragecloud/ibmcloud-dev
       description: Docker image with the tools needed for executing this task.
     - name: python-image
       type: string
