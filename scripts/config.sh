@@ -7,7 +7,7 @@
 ##
 echo "Updating PIP"
 # Upgrade pip to a specific version
-usr/local/bin/python3 -m pip install --upgrade pip==24.0
+python3 -m pip install --upgrade pip==24.0
 
 # Verify the upgrade
 pip_version=$(pip --version)
