@@ -21,7 +21,8 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
         print("OS LIST DIR IN: get_api_name_from_product ")
         print(os.listdir())
         os.listdir()
-        with open(env_local_target_dir + "/" + product_file_name) as f:
+        # with open(env_local_target_dir + "/" + product_file_name) as f:
+        with open("../" + product_file_name) as f:
             print("printing F in open")
             print(f)
             # use safe_load instead load
