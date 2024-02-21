@@ -60,7 +60,8 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
     resp_json = {}
     try:
         url = "https://" + apic_platform_base_url + "/catalogs/" + apic_mgmt_provorg + "/" + apic_mgmt_catalog + "/publish?migrate_subscriptions=true"
-        
+        print("url for publish")
+        print(url)
         """ for single product with single api
         multipart_data = MultipartEncoder(
             fields={
@@ -79,9 +80,6 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         
         multiple_files = [('product',(product_file_name, open(env_local_target_dir + "/" + product_file_name, 'rb'), 'application/json'))]
         var_apilist = get_api_name_from_product(env_local_target_dir, product_file_name)
-
-        print("var_apilist")
-        print(var_apilist)
         
         if var_apilist:
             print(INFO + "Publish product:", product_file_name)
@@ -171,7 +169,8 @@ def orchestrate():
                                                                     WORKING_DIR_BASIC,
                                                                     product_file_name,
                                                                     var_bearer_token)
-                # print("publish_resp: ",publish_resp)
+                
+                print("publish_resp: ",publish_resp)
                 if "errorresponse" in publish_resp:
                     apic_publish_audit[product_file_name] = "FAILED" + publish_resp['errorresponse']
                 elif "state" in publish_resp:
