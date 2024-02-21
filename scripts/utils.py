@@ -21,7 +21,7 @@ def get_env_config(CONFIG_FILES_DIR):
     if os.path.isfile(CONFIG_FILES_DIR + "/config.json"):
         with open(CONFIG_FILES_DIR + "/config.json") as f:
             file = f.read()
-            env_config = json.load(file)
+            env_config = json.loads(file)
     else:
         env_config = {}
     return env_config
