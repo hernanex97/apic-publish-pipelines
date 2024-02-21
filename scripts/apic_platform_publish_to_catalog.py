@@ -136,10 +136,14 @@ def orchestrate():
             what is in your APIC instance through GitHub. See at the bottom of this script for more info
             """
             # Delete all the products first so that the bulk update approach works (this will delete all APIs too).
-            delete_all_products(environment_config["APIC_PLATFORM_API_URL"] + "/api",
-                                            os.environ["PROV_ORG_TITLE"].strip().replace(" ","-").lower(),
-                                            os.environ["PROV_ORG_CATALOG_NAME"], 
-                                            var_bearer_token)
+            
+            # delete_all_products(environment_config["APIC_PLATFORM_API_URL"] + "/api",
+            #                                 os.environ["PROV_ORG_TITLE"].strip().replace(" ","-").lower(),
+            #                                 os.environ["PROV_ORG_CATALOG_NAME"], 
+            #                                 var_bearer_token)
+            
+            
+            
             apic_publish_audit = {}
             for product_file_name in var_product_tuple:
                 publish_resp = publish_to_catalog_using_platform_api(environment_config["APIC_PLATFORM_API_URL"] + "/api",

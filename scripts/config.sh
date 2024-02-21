@@ -4,18 +4,6 @@
 # Configuration Initialization Script #
 #######################################
 
-##
-echo "Updating PIP"
-# Upgrade pip to a specific version
-python3 --version
-python3 -m pip install --upgrade pip==23.2.1
-
-# Verify the upgrade
-pip_version=$(pip --version)
-echo "Pip has been upgraded: $pip_version"
-##
-
-
 if [[ -z "$1" ]]
 then
   echo "[ERROR][config.sh] - An IBM API Connect installation OpenShift poject was not provided"
@@ -87,8 +75,7 @@ chmod 777 apic-slim
 
 echo "APIC accept licenses"
 echo "y" | ./apic-slim
-echo "y"
-./apic-slim --help
+echo "y" | ./apic-slim
 
 # Get the IBM APIC Connect Cloud Manager Admin password
 # APIC_ADMIN_PASSWORD=$(oc get secret $(oc get secrets -n ${APIC_NAMESPACE} | grep mgmt-admin-pass | awk '{print $1}') -n ${APIC_NAMESPACE} -o jsonpath='{.data.password}' | base64 -d)
