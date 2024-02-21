@@ -120,6 +120,15 @@ def orchestrate():
                                                                                             os.environ["GIT_PRIV_TOKEN"],
                                                                                             os.environ['GIT_PRODUCTS_PATH'])
 
+        print("GET TOKEN:")
+        print(environment_config["APIC_PLATFORM_API_URL"] + "/api",
+                                                                os.environ["PROV_ORG_OWNER_USERNAME"],
+                                                                os.environ["PROV_ORG_OWNER_PASSWORD"],
+                                                                os.environ["PROV_ORG_REALM"],
+                                                                toolkit_credentials["toolkit"]["client_id"],
+                                                                toolkit_credentials["toolkit"]["client_secret"])
+        
+        
         gbt_resp = apic_platform_get_bearer_token.get_bearer_token(environment_config["APIC_PLATFORM_API_URL"] + "/api",
                                                                    os.environ["PROV_ORG_OWNER_USERNAME"],
                                                                    os.environ["PROV_ORG_OWNER_PASSWORD"],
@@ -127,6 +136,10 @@ def orchestrate():
                                                                    toolkit_credentials["toolkit"]["client_id"],
                                                                    toolkit_credentials["toolkit"]["client_secret"])
 
+
+        print("TOKEN:")
+        print(gbt_resp['access_token'])
+        
         if "access_token" in gbt_resp:
             var_bearer_token = gbt_resp['access_token']
             """
