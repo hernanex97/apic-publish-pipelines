@@ -80,9 +80,16 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         
         print("product_file_name:")
         print(product_file_name)
-        print("multiple_files:")
         multiple_files = [('product',(product_file_name, open(env_local_target_dir + "/" + product_file_name, 'rb'), 'application/json'))]
+        print("multiple_files:")
+        print(multiple_files)
+        
+        print(os.listdir("../.."))
+        
+        
         var_apilist = get_api_name_from_product(env_local_target_dir, product_file_name)
+        
+        
         
         print("var_apilist:")
         print(var_apilist)
