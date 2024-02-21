@@ -18,9 +18,7 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
     
     var_apilist = []
     try:
-        print("OS LIST DIR IN: get_api_name_from_product ")
-        print(os.listdir())
-        os.listdir()
+        print(os.curdir())
         # with open(env_local_target_dir + "/" + product_file_name) as f:
         with open("/source/config/" + product_file_name) as f:
             print("printing F in open")
