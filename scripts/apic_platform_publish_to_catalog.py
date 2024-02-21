@@ -19,7 +19,7 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
     var_apilist = []
     try:
         # with open(env_local_target_dir + "/" + product_file_name) as f:
-        with open("/source/" + product_file_name) as f:
+        with open(product_file_name) as f:
             print("printing F in open")
             print(f)
             # use safe_load instead load
@@ -78,8 +78,14 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         
         product_file_name = product_file_name + '.yaml'
         
+        print("product_file_name:")
+        print(product_file_name)
+        print("multiple_files:")
         multiple_files = [('product',(product_file_name, open(env_local_target_dir + "/" + product_file_name, 'rb'), 'application/json'))]
         var_apilist = get_api_name_from_product(env_local_target_dir, product_file_name)
+        
+        print("var_apilist:")
+        print(var_apilist)
         
         if var_apilist:
             print(INFO + "Publish product:", product_file_name)
