@@ -18,12 +18,12 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
     
     var_apilist = []
     try:
-        # with open(env_local_target_dir + "/" + product_file_name) as f:
-        with open(product_file_name) as f:
+        with open(env_local_target_dir + "/" +product_file_name, "r") as f:
             print("printing F in open")
             print(f)
+            product_file_readed = f.read()
             # use safe_load instead load
-            dataMap = yaml.safe_load(f)
+            dataMap = yaml.safe_load(product_file_readed)
         if "product" in dataMap and "apis" in dataMap:
             for api_id, api_info in dataMap["apis"].items():
                 if "name" in api_info:
@@ -83,9 +83,6 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         multiple_files = [('product',(product_file_name, open(env_local_target_dir + "/" + product_file_name, 'rb'), 'application/json'))]
         print("multiple_files:")
         print(multiple_files)
-        
-        print(os.listdir(env_local_target_dir))
-        
         
         var_apilist = get_api_name_from_product(env_local_target_dir, product_file_name)
         
