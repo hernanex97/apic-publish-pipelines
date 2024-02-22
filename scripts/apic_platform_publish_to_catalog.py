@@ -84,7 +84,7 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         print("multiple_files:")
         print(multiple_files)
         
-        var_apilist = get_api_name_from_product(env_local_target_dir, product_file_name)
+        var_apilist = get_api_refs_from_product(env_local_target_dir, product_file_name)
         
         
         
