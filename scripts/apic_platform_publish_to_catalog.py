@@ -129,7 +129,7 @@ def publish_to_catalog_using_apic_command():
     import subprocess
 
     command_login = [
-        "/config/apic-slim",
+        "/source/config/apic-slim",
         "login",
         "--server", "small-mgmt-api-manager-cp4i.labstandard-cluster-4fbd020bc0ea2f74acb20659261f8375-i000.us-south.containers.appdomain.cloud",
         "--username", os.environ["PROV_ORG_OWNER_USERNAME"],
@@ -138,7 +138,7 @@ def publish_to_catalog_using_apic_command():
     ]
     
     command_publish = [
-        "/config/apic-slim", 
+        "/source/config/apic-slim", 
         "products:publish", 
         "--catalog", "develop", 
         "--org", "ibm", 
