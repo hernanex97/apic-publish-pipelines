@@ -96,11 +96,11 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         print("var_apilist:")
         print(var_apilist)
         
-        if var_apilist:
+        try:
             print(INFO + "Publish product:", product_file_name)
             print(INFO + "with APIs:", var_apilist)
-            for apiname in var_apilist:
-                multiple_files.append(('openapi', (apiname + '.yaml', open(env_local_target_dir+ "/" + apiname + '.yaml', 'rb'), 'application/json')))
+            # for apiname in var_apilist:
+            #     multiple_files.append(('openapi', (apiname + '.yaml', open(env_local_target_dir+ "/" + apiname + '.yaml', 'rb'), 'application/json')))
 
             reqheaders = {
                 "Accept" : "application/json",
@@ -111,10 +111,11 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
             retries = Retry(total=3, backoff_factor=1, status_forcelist=[ 502, 503, 504 ])
             s.mount(url, HTTPAdapter(max_retries=retries))
             #response = s.post(url, headers=reqheaders, data=multipart_data, verify=False, timeout=120)
-            response = s.post(url, headers=reqheaders, files=multiple_files, verify=False, timeout=300)
+            # response = s.post(url, headers=reqheaders, files=multiple_files, verify=False, timeout=300)
+            response = s.post(url, headers=reqheaders, verify=False, timeout=300)
             print(INFO + "Response:",response.status_code)
             resp_json = response.json()
-        else:
+        except:
             print(INFO + "Publish product:", product_file_name)
             print(INFO + "No APIs found for this product")
             resp_json = {
