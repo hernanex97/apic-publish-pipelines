@@ -89,16 +89,10 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
         print("multiple_files:")
         print(multiple_files)
         
-        var_apilist = get_api_refs_from_product(env_local_target_dir, product_file_name)
-        
-        
-        
-        print("var_apilist:")
-        print(var_apilist)
+        # var_apilist = get_api_refs_from_product(env_local_target_dir, product_file_name)
         
         try:
             print(INFO + "Publish product:", product_file_name)
-            print(INFO + "with APIs:", var_apilist)
             # for apiname in var_apilist:
             #     multiple_files.append(('openapi', (apiname + '.yaml', open(env_local_target_dir+ "/" + apiname + '.yaml', 'rb'), 'application/json')))
 
@@ -129,6 +123,43 @@ def publish_to_catalog_using_platform_api(apic_platform_base_url, apic_mgmt_prov
     
     return resp_json
 
+
+
+def publish_to_catalog_using_apic_command():
+    import subprocess
+
+    command_login = [
+        "apic",
+        "login",
+        "--server", "small-mgmt-api-manager-cp4i.labstandard-cluster-4fbd020bc0ea2f74acb20659261f8375-i000.us-south.containers.appdomain.cloud",
+        "--username", os.environ["PROV_ORG_OWNER_USERNAME"],
+        "--password", os.environ["PROV_ORG_OWNER_PASSWORD"],
+        "realm", "provider/default-idp-1"
+    ]
+    
+    command_publish = [
+        "apic", 
+        "products:publish", 
+        "--catalog", "develop", 
+        "--org", "ibm", 
+        "--server", "small-mgmt-api-manager-cp4i.labstandard-cluster-4fbd020bc0ea2f74acb20659261f8375-i000.us-south.containers.appdomain.cloud",
+        "poke-product_1.0.0.yaml"
+    ]
+
+    #login
+    subprocess.run(command_login, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    #publish
+    try:
+        result = subprocess.run(command_publish, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        print("Command output:\n", result.stdout)
+    except subprocess.CalledProcessError as e:
+        print("Error executing command:", e)
+    except FileNotFoundError:
+        print(f"Command {command_publish[0]} not found. Ensure it's installed and in your PATH.")
+        
+        
+        
 def orchestrate():
     try:
 
@@ -179,12 +210,14 @@ def orchestrate():
             
             apic_publish_audit = {}
             for product_file_name in var_product_tuple:
-                publish_resp = publish_to_catalog_using_platform_api(environment_config["APIC_PLATFORM_API_URL"] + "/api",
-                                                                    os.environ["PROV_ORG_TITLE"].strip().replace(" ","-").lower(),
-                                                                    os.environ["PROV_ORG_CATALOG_NAME"], 
-                                                                    WORKING_DIR_BASIC,
-                                                                    product_file_name,
-                                                                    var_bearer_token)
+                # publish_resp = publish_to_catalog_using_platform_api(environment_config["APIC_PLATFORM_API_URL"] + "/api",
+                #                                                     os.environ["PROV_ORG_TITLE"].strip().replace(" ","-").lower(),
+                #                                                     os.environ["PROV_ORG_CATALOG_NAME"], 
+                #                                                     WORKING_DIR_BASIC,
+                #                                                     product_file_name,
+                #                                                     var_bearer_token)
+                
+                publish_resp = publish_to_catalog_using_apic_command()
                 
                 print("publish_resp: ",publish_resp)
                 if "errorresponse" in publish_resp:
