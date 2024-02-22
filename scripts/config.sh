@@ -77,6 +77,10 @@ echo "APIC accept licenses"
 echo "y" | ./apic-slim
 echo "y" | ./apic-slim
 
+echo "apic-slim directory"
+pwd
+ll
+
 # Get the IBM APIC Connect Cloud Manager Admin password
 # APIC_ADMIN_PASSWORD=$(oc get secret $(oc get secrets -n ${APIC_NAMESPACE} | grep mgmt-admin-pass | awk '{print $1}') -n ${APIC_NAMESPACE} -o jsonpath='{.data.password}' | base64 -d)
 MGMT_PASSWORD=$(oc get secret apic-pipeline-provider-org -n ${APIC_NAMESPACE} -o jsonpath='{.data.PROV_ORG_OWNER_PASSWORD}' | base64 --decode)
