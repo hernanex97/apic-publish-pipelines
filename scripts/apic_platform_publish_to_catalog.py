@@ -20,10 +20,11 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
     print("Estoy en get_api_name_from_product")
     try:
 
-        os.system("cat /../WORKSPACE/poke-product_1.0.0.yaml")
+        pathasdas = env_local_target_dir + "/" +product_file_name
+        os.system(f"cat + {pathasdas}")
 
 
-        with open("/" + env_local_target_dir + "/" +product_file_name, "r") as f:
+        with open(env_local_target_dir + "/" +product_file_name, "r") as f:
             print("printing F in open")
             print(f)
             product_file_readed = f.read()
