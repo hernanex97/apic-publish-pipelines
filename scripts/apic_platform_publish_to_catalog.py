@@ -19,6 +19,8 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
     var_apilist = []
     print("Estoy en get_api_name_from_product")
     try:
+        print("/" + env_local_target_dir + "/" +product_file_name)
+        print(os.getcwd)
         with open("/" + env_local_target_dir + "/" +product_file_name, "r") as f:
             print("printing F in open")
             print(f)
@@ -30,6 +32,7 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
                 if "name" in api_info:
                     var_apilist.append(api_info["name"].replace(":", "_"))
     except Exception as e:
+        print("[ERROR] Exception trying to open the file")
         raise Exception("[ERROR] - Exception in " + FILE_NAME + ": " + repr(e))
     return var_apilist
 
