@@ -14,28 +14,19 @@ INFO = "[INFO]["+ FILE_NAME +"] - "
 WORKING_DIR_BASIC = "../WORKSPACE"
 
 
-def get_api_name_from_product(env_local_target_dir, product_file_name):
-    
+def get_api_refs_from_product(env_local_target_dir, product_file_name):
     var_apilist = []
-    print("Estoy en get_api_name_from_product")
     try:
-
-        pathasdas = env_local_target_dir + "/" +product_file_name
-        print(os.system(f"cat + {pathasdas}"))
-
-
-        with open(env_local_target_dir + "/" +product_file_name, "r") as f:
-            product_file_readed = f.read()
-            # use safe_load instead load
-            dataMap = yaml.safe_load(product_file_readed)
-            print("dataMap")
-            print(dataMap)
-        if "product" in dataMap and "apis" in dataMap:
-            for api_id, api_info in dataMap["apis"].items():
-                if "name" in api_info:
-                    print("api_info")
-                    print(api_info)
-                    var_apilist.append(api_info["name"].replace(":", "_"))
+        with open(f"{env_local_target_dir}/{product_file_name}", "r") as f:
+            data = yaml.safe_load(f)
+        
+        # Check if the 'apis' key is present in the data
+        if "apis" in data:
+            for api_name, api_info in data["apis"].items():
+                # Check if '$ref' is in the current api_info dictionary
+                if "$ref" in api_info:
+                    # Extract the value of '$ref' and append it to var_apilist
+                    var_apilist.append(api_info["$ref"])
     except Exception as e:
         print("[ERROR] Exception trying to open the file")
         raise Exception("[ERROR] - Exception in " + FILE_NAME + ": " + repr(e))
