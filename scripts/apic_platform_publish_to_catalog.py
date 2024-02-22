@@ -17,8 +17,9 @@ WORKING_DIR_BASIC = "../WORKSPACE"
 def get_api_name_from_product(env_local_target_dir, product_file_name):
     
     var_apilist = []
+    print("Estoy en get_api_name_from_product")
     try:
-        with open(env_local_target_dir + "/" +product_file_name, "r") as f:
+        with open("/" + env_local_target_dir + "/" +product_file_name, "r") as f:
             print("printing F in open")
             print(f)
             product_file_readed = f.read()
