@@ -15,6 +15,9 @@ WORKING_DIR_BASIC = "../WORKSPACE"
 
 
 def get_api_refs_from_product(env_local_target_dir, product_file_name):
+    print("env_local_target_dir")
+    print(env_local_target_dir)
+    print(os.listdir(env_local_target_dir))
     var_apilist = []
     try:
         with open(f"../WORKSPACE/" + {product_file_name},"r") as f:
