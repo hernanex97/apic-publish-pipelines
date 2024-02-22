@@ -21,18 +21,20 @@ def get_api_name_from_product(env_local_target_dir, product_file_name):
     try:
 
         pathasdas = env_local_target_dir + "/" +product_file_name
-        os.system(f"cat + {pathasdas}")
+        print(os.system(f"cat + {pathasdas}"))
 
 
         with open(env_local_target_dir + "/" +product_file_name, "r") as f:
-            print("printing F in open")
-            print(f)
             product_file_readed = f.read()
             # use safe_load instead load
             dataMap = yaml.safe_load(product_file_readed)
+            print("dataMap")
+            print(dataMap)
         if "product" in dataMap and "apis" in dataMap:
             for api_id, api_info in dataMap["apis"].items():
                 if "name" in api_info:
+                    print("api_info")
+                    print(api_info)
                     var_apilist.append(api_info["name"].replace(":", "_"))
     except Exception as e:
         print("[ERROR] Exception trying to open the file")
