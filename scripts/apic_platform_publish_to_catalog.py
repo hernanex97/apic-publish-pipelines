@@ -17,7 +17,7 @@ WORKING_DIR_BASIC = "../WORKSPACE"
 def get_api_refs_from_product(env_local_target_dir, product_file_name):
     var_apilist = []
     try:
-        with open(f"{env_local_target_dir}/{product_file_name}", "r") as f:
+        with open(f"../WORKSPACE/" + {product_file_name},"r") as f:
             data = yaml.safe_load(f)
         
         # Check if the 'apis' key is present in the data
